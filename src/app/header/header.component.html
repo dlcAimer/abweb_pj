@@ -1,0 +1,48 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row *ngIf="!admin">
+        <span style="font-size: 1.75em;">Ash Design</span>
+        <span class="example-fill-remaining-space"></span>
+        <span class="align-center"></span>
+        <span class="example-spacer"></span>
+
+        <button mat-button [routerLink]="['/']" class="nav-sub">
+            <mat-icon>home</mat-icon>
+            Home
+        </button>
+        <button mat-button [routerLink]="['/quick-start']" class="nav-sub">
+            <mat-icon aria-hidden="true">star</mat-icon>
+            Quick Start
+        </button>
+        <div *ngIf="!user">
+            <button mat-button [routerLink]="['/login']" class="nav-sub">
+                Login
+            </button>
+            <button mat-button [routerLink]="['/register']" class="nav-sub">
+                Register
+            </button>
+        </div>
+        <div *ngIf="user">
+            <button mat-button [routerLink]="['/userInfo']" [queryParams]="user" class="nav-sub">
+                <mat-icon>personal</mat-icon>
+                Personal
+            </button>
+            <button mat-button (click)="logout()" class="nav-sub">
+                <mat-icon>logout</mat-icon>
+                Logout
+            </button>
+        </div>
+    </mat-toolbar-row>
+    <mat-toolbar-row *ngIf="admin">
+        <span style="font-size: 1.75em;">Ash Design</span>
+        <span class="example-fill-remaining-space"></span>
+        <span class="align-center"></span>
+        <span class="example-spacer"></span>
+        <button mat-button [routerLink]="['/Overview-root']" class="nav-sub">
+            Manage
+        </button>
+        <button mat-button (click)="logout()" class="nav-sub">
+            <mat-icon>logout</mat-icon>
+            Logout
+        </button>
+    </mat-toolbar-row>
+</mat-toolbar>

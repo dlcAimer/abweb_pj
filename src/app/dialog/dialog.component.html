@@ -1,0 +1,89 @@
+<h1 mat-dialog-title>{{data.inform}}</h1>
+<div *ngIf="!data.isNav">
+    <div mat-dialog-content>
+        <div *ngIf="data.shape">
+            <canvas #mycanvas width="160" height="90" class="mycanvas" (click)="onConvert()"></canvas>
+        </div>
+        <div *ngIf="data.imgUrl">
+            <img src="{{data.imgUrl}}">
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <mat-progress-bar mode="indeterminate" *ngIf="(data.inform=='正在为你编译和运行代码。。。')"></mat-progress-bar>
+        <button mat-button color="accent" (click)="onNoClick()" class="ok-btn" *ngIf="(data.inform!='正在为你编译和运行代码。。。')">
+            OK
+        </button>
+    </div>
+</div>
+
+<!--新手指南的弹窗-->
+<div *ngIf="data.isNav">
+    <mat-horizontal-stepper [linear]="true" #stepper>
+        <mat-step>
+            <ng-template matStepLabel>选择设计模式</ng-template>
+            <mat-grid-list cols="2" rowHeight="3:2">
+                <mat-grid-tile>
+                    <img src="../../pic/nav1.JPG">
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <p>
+                        我们提供了5个设计模式的学习场景！我们推荐的学习顺序是先从工厂模式开始然后单例
+                        装饰器、策略、组合，当然你可以选择你喜欢的模式先学习。
+                    </p>
+                </mat-grid-tile>
+            </mat-grid-list>
+            <div class="nextBack">
+                <button mat-raised-button matStepperPrevious color="primary" (click)="onNoClick()">跳过</button>
+                <button mat-raised-button matStepperNext color="accent">下一步</button>
+            </div>
+        </mat-step>
+
+        <mat-step>
+            <ng-template matStepLabel>工具栏</ng-template>
+            <mat-grid-list cols="2" rowHeight="3:2">
+                <mat-grid-tile>
+                    <img src="../../pic/nav2.JPG">
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <p>
+                        这是一个工具栏，我们可以从这里面移出右侧的设计场景故事所需要的方块，进行拼接最后得到我们要的场景
+                    </p>
+                </mat-grid-tile>
+            </mat-grid-list>
+            <div class="nextBack">
+                <button mat-raised-button matStepperPrevious color="primary">上一步</button>
+                <button mat-raised-button matStepperNext color="accent">下一步</button>
+
+            </div>
+        </mat-step>
+
+        <mat-step>
+            <ng-template matStepLabel>拖动积木</ng-template>
+            <mat-grid-list cols="2" rowHeight="4:3">
+                <mat-grid-tile>
+                    <img src="../../pic/nav3.PNG">
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <p>
+                        当你用工具栏里的积木拼成你满意的代码，
+                        下面你需要做的就是验证你的代码啦！我们建议每个场景通过之后再运行下一个，但是我们仍然允许你先看一看后面的场景，
+                        右边的代码展示的积木所形成的JAVA代码如果你不懂JAVA，可以忽略。但是学习设计模式我们非常建议你使用JAVA语言
+                    </p>
+                </mat-grid-tile>
+            </mat-grid-list>
+            <div class="nextBack">
+                <button mat-raised-button matStepperPrevious color="primary">上一步</button>
+                <button mat-raised-button matStepperNext color="accent">下一步</button>
+            </div>
+        </mat-step>
+
+        <mat-step>
+            <ng-template matStepLabel>Done</ng-template>
+            恭喜你完成了简易教程，赶紧体验一下吧！
+            <br>
+            <div class="next">
+            <button mat-raised-button (click)="onNoClick()" color="accent">好的</button>
+            </div>
+        </mat-step>
+    </mat-horizontal-stepper>
+</div>

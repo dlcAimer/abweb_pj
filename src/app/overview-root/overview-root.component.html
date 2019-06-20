@@ -1,0 +1,14 @@
+<app-header></app-header>
+<section id="navBar">
+    <mat-grid-list cols="1" rowHeight="4:1">
+        <mat-grid-tile *ngFor="let student of students" [class.selected]="student === selected"
+                       (click)="onSelect(student);">
+            {{student}}
+        </mat-grid-tile>
+    </mat-grid-list>
+</section>
+
+<div id="history">
+    <mat-toolbar class="bar">场景操作历史</mat-toolbar>
+    <app-history-table></app-history-table>
+</div>

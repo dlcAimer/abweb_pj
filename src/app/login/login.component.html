@@ -1,0 +1,52 @@
+<app-header></app-header>
+
+<div id="particles">
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title>
+                <H3>
+                Login
+                </H3>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form class="example-form" >
+                <table class="example-full-width" cellspacing="0">
+                    <tr>
+                        <td>
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="User Name" [(ngModel)]="username" name="username" required>
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Password" [(ngModel)]="password" type="password"
+                                       name="password" required>
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td [formGroup]="options">
+                            <mat-radio-group formControlName="usrLabel">
+                                <mat-radio-button value="student">student &nbsp;</mat-radio-button>
+                                <mat-radio-button value="admin">teacher</mat-radio-button>
+                            </mat-radio-group>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <mat-error *ngIf="showSpinner">{{warnning}}</mat-error>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button  (click)="login()" color="primary">Login</button>
+        </mat-card-actions>
+        <mat-card-footer>
+            <mat-toolbar style="font-size: 14px"> new here ? <a [routerLink]="['../register']">&nbsp;create an
+                account</a></mat-toolbar>
+        </mat-card-footer>
+
+
+    </mat-card>
+</div>

@@ -1,0 +1,41 @@
+<!--<mat-tab label="历史操作">-->
+<mat-form-field>
+    <input matInput [matDatepicker]="dp3" placeholder="choose a date " disabled
+           (dateChange)="applyFilter($event.target.value)">
+    <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+    <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+</mat-form-field>
+<!--表格-->
+<table mat-table [dataSource]="sceneHistorySource" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <!-- Name Column -->
+    <ng-container matColumnDef="designPropName">
+        <th mat-header-cell *matHeaderCellDef> 设计模式</th>
+        <td mat-cell *matCellDef="let element"> {{element.designPropName}}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="sceneName">
+        <th mat-header-cell *matHeaderCellDef>场景</th>
+        <td mat-cell *matCellDef="let element"> {{element.sceneName}}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="beginTime">
+        <th mat-header-cell *matHeaderCellDef>时间</th>
+        <td mat-cell *matCellDef="let element"> {{element.beginTime}}</td>
+    </ng-container>
+
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="testPassRate">
+        <th mat-header-cell *matHeaderCellDef>通过率</th>
+        <td mat-cell *matCellDef="let element"> {{element.testPassRate}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
+
+<!--</mat-tab>-->

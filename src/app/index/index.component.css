@@ -1,0 +1,19 @@
+#mainBody {
+    background-image: url('../../pic/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 90%;
+    width: 100%;
+}
+
+#title {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+#content {
+    font-size: 1.5em;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.8);
+    margin: 0 1em;
+}

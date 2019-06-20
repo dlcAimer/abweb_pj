@@ -1,0 +1,43 @@
+.selected {
+    background-color: rgba(190, 190, 190, 0.3);
+    color: rgba(0, 0, 205, 1);
+    border-right: solid 0.15em rgba(0, 0, 205, 1);
+}
+
+mat-grid-list:nth-child(1) {
+    margin-top: 1em;
+}
+
+mat-grid-tile {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 90%;
+}
+
+mat-grid-tile:hover {
+    color: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    animation: colorChange 1s;
+    animation-fill-mode: forwards
+}
+
+@keyframes colorChange {
+    from {
+        color: rgba(0, 0, 0, 0.6);
+        background-color: transparent;
+    }
+    to {
+        color: rgba(0, 0, 205, 1);
+        background-color: rgba(190, 190, 190, 0.3);
+    }
+}
+
+#navBar {
+    width: 15%;
+    box-shadow: 0.2em 0 0.1em rgba(0, 0, 0, 0.2);
+    float: left;
+    margin: 0;
+}
+
+#history {
+    margin: 1% 10% 0 18%;
+}

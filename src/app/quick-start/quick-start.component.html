@@ -1,0 +1,76 @@
+<app-header></app-header>
+
+
+<mat-drawer-container class="example-container">
+    <mat-drawer #drawer mode="side" opened>
+        <div _ngcontent-c10 class="docs-toc-container ng-star-inserted" id="left_side">
+            <div _ngcontent-c10 class="docs-toc-heading">目录</div>
+            <nav>
+                <a _ngcontent-c12 href="/quick-start#step1" class="docs-level-h3 docs-link ng-star-inserted">学习设计模式</a>
+            </nav>
+            <nav>
+                <a _ngcontent-c12 href="/quick-start#step2" class="docs-level-h3 docs-link ng-star-inserted">查看个人信息</a>
+            </nav>
+            <nav>
+                <a _ngcontent-c12 href="/quick-start#step3" class="docs-level-h3 docs-link ng-star-inserted">教师查看学生历史操作</a>
+            </nav>
+        </div>
+    </mat-drawer>
+    <mat-drawer-content id="mainBody">
+        <div id="left_hover"></div>
+        <h1>新手指南</h1>
+        <div id="step1" class="step">
+            <h2>一、学习设计模式</h2>
+            <p>1. 注册登陆之后只需要点击主页的
+                <button mat-raised-button color="primary" (click)="onClick()">开始学习</button>
+                按钮即可开始轻松快乐的学习设计模式了。
+            </p>
+            <p>
+                2. 在此处您可以任意选择一项设计模式来开始学习。
+            </p>
+            <p>
+                3. 在学习界面，左侧是画布，在画布内，您可以通过拖动积木来实现代码的拼接，如果觉得不需要某块积木，
+                可以拖动到垃圾箱中以清除，若之后又觉得不该丢弃，还可以捡回来哦，划重点！<br/>
+                右上方是设计模式的案例描述以及 hints，右下方是点击 “运行” 按钮之后根据您的积木而自动生成的代码。<br/>
+                点击运行之后，系统会根据您拼接的代码来判断结果是否正确，并会给出相应的提示信息。
+            </p>
+            <br/>
+            <img src="../../pic/novice_guide_image1.jpg" alt="">
+            <br/><br/><br/>
+        </div>
+
+        <div id="step2" class="step">
+            <h2>二、查看个人信息</h2>
+            <h4>1. 个人信息</h4>
+            <p>
+                在此处，您可以查看您的个人信息以及切换用户
+            </p>
+            <h4>2. 学习情况</h4>
+            <p>
+                在这个界面中，您可以看到各个设计模式的学习情况以及最近学习时长的折线图统计。
+                （老师也能实时看到您的学习情况哦，可别想着偷懒啊）。
+            </p>
+            <br/>
+            <img src="../../pic/novice_guide_image2.jpg" alt="">
+            <br/><br/>
+            <h4>3. 历史操作</h4>
+            <p>
+                在此处，您可以看到您最近的学习记录，也可以选择查看之前特定的某一天的学习记录。
+            </p>
+        </div>
+
+        <div id="step3" class="step">
+            <br/><br/>
+            <h2>三、教师查看学生历史操作</h2>
+            <p>
+                在登陆界面选择教师登陆之后，可以查看到所有学生的各种学习状况。
+            </p>
+            <br/><br/>
+        </div>
+
+    </mat-drawer-content>
+</mat-drawer-container>
+<!--<app-footer></app-footer>-->
+
+
+

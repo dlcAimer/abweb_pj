@@ -1,0 +1,85 @@
+<app-header></app-header>
+<section id="mainPart">
+  <mat-tab-group>
+    <mat-tab label="个人信息">
+      <mat-list class="chart">
+        <h4 mat-line>
+          <mat-icon mat-list-icon>person</mat-icon>
+          用户名：{{nowUser.userName}}
+        </h4>
+        <mat-divider></mat-divider>
+        <h3 mat-subheader>注册时间：{{nowUser.registerTime}}</h3>
+        <mat-divider></mat-divider>
+        <h3 mat-subheader>注册邮箱：{{nowUser.email}}</h3>
+        <mat-divider></mat-divider>
+        <h1 mat-subheader>
+          <span class="align-center"></span>
+          <span class="example-spacer"></span>
+          <button mat-raised-button (click)="changeUser()" color="primary">切换用户</button>
+        </h1>
+      </mat-list>
+    </mat-tab>
+
+
+    <mat-tab label="学习情况">
+      <mat-toolbar class="bar">学习进度面板</mat-toolbar>
+      <!--表格-->
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef> No.</th>
+          <td mat-cell *matCellDef="let element"> {{element.position}}</td>
+        </ng-container>
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> 设计模式</th>
+          <td mat-cell *matCellDef="let element"> {{element.name}}</td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="symbol">
+          <th mat-header-cell *matHeaderCellDef> 进度</th>
+          <td mat-cell *matCellDef="let element"> {{element.symbol}}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+
+      <!--图表-->
+      <div class="chart">
+        <mat-toolbar class="bar">学习时长检测</mat-toolbar>
+        <ngx-charts-line-chart
+          [view]="studentLineChart.view"
+          [scheme]="studentLineChart.scheme"
+          [results]="studentLineChart.results"
+          [gradient]="studentLineChart.gradient"
+          [xAxis]="studentLineChart.xAxis"
+          [yAxis]="studentLineChart.yAxis"
+          [legend]="studentLineChart.legend"
+          [showXAxisLabel]="studentLineChart.showXAxisLabel"
+          [showYAxisLabel]="studentLineChart.showYAxisLabel"
+          [xAxisLabel]="studentLineChart.xAxisLabel"
+          [yAxisLabel]="studentLineChart.yAxisLabel"
+          [autoScale]="studentLineChart.autoScale">
+          <ng-template #seriesTooltipTemplate let-items="model">
+            <p style="font-size:20px;margin:1px 0 0 0;">{{items[0].name}}</p>
+            <ul style="text-align:left">
+              <li *ngFor="let item of items">
+                {{item.series}}: {{item.value | number}}
+                <br>
+              </li>
+            </ul>
+          </ng-template>
+        </ngx-charts-line-chart>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="历史操作">
+      <app-history-table [user]="nowUser"></app-history-table>
+    </mat-tab>
+
+  </mat-tab-group>
+
+</section>

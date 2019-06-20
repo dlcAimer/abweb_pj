@@ -1,0 +1,48 @@
+<app-header></app-header>
+
+<link href="https://fonts.googleapis.com/css?family=Viga&display=swap" rel="stylesheet">
+<div id="particles">
+    <section id="mainPart">
+        <mat-card class="example-card">
+            <mat-grid-list cols="3" rowHeight="60px">
+                <a [routerLink]="['/blockly-program']" [queryParams]="{id:0}">
+                    <mat-grid-tile [rowspan]="3">
+                        <img src="../../pic/factory_method.jpg">
+                    </mat-grid-tile>
+                </a>
+
+                <a [routerLink]="['/blockly-program']" [queryParams]="{id:1}">
+                    <mat-grid-tile [rowspan]="3">
+                        <img src="../../pic/danli.jpg">
+                    </mat-grid-tile>
+                </a>
+
+                <a [routerLink]="['/blockly-program']" [queryParams]="{id:2}">
+                    <mat-grid-tile [rowspan]="3">
+                        <img src="../../pic/decorator.jpg">
+                    </mat-grid-tile>
+                </a>
+                <mat-grid-tile>Factory mode</mat-grid-tile>
+                <mat-grid-tile>Singleton mode</mat-grid-tile>
+                <mat-grid-tile>Decorator mode</mat-grid-tile>
+
+                <a [routerLink]="['/blockly-program']" [queryParams]="{id:3}">
+                    <mat-grid-tile [rowspan]="3">
+                        <img src="../../pic/strategy.jpg">
+                    </mat-grid-tile>
+                </a>
+
+                <a [routerLink]="['/blockly-program']" [queryParams]="{id:4}">
+                    <mat-grid-tile [rowspan]="3">
+                        <img src="../../pic/combine.jpg">
+                    </mat-grid-tile>
+                </a>
+                <mat-grid-tile [rowspan]="3">
+                </mat-grid-tile>
+                <mat-grid-tile>Strategy mode</mat-grid-tile>
+                <mat-grid-tile>Combination mode</mat-grid-tile>
+                <mat-grid-tile></mat-grid-tile>
+            </mat-grid-list>
+        </mat-card>
+    </section>
+</div>

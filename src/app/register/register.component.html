@@ -1,0 +1,62 @@
+<app-header></app-header>
+<div id="particles">
+
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>
+        <H3> Register </H3>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="example-form">
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="User Name" [formControl]="usernameControl" [(ngModel)]="username" required>
+                <mat-error *ngIf="usernameControl.invalid">{{getErrorMessageBuiltIn("username")}}</mat-error>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Enter your email" [(ngModel)]="email"
+                       [formControl]="emailControl" required>
+                <mat-error *ngIf="emailControl.invalid">{{getErrorMessageBuiltIn("email")}}</mat-error>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Enter your password" [(ngModel)]="password"
+                       [type]="hide ? 'password' : 'text'"
+                       [formControl]="passwordControl"
+                       required>
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <mat-error *ngIf="passwordControl.invalid">{{getErrorMessageBuiltIn("password")}}</mat-error>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="confirm your password" [(ngModel)]="confirmPassword"
+                       [type]="hide ? 'password' : 'text'"
+                       [formControl] = "passwordConfirmControl"
+                       required>
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <mat-error *ngIf="passwordConfirmControl.invalid">{{getErrorMessageBuiltIn("passwordConfirm")}}</mat-error>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button (click)="register()" color="primary">Register</button>
+      <button mat-raised-button [routerLink]="['register']">Cancel</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -1,0 +1,32 @@
+<app-header></app-header>
+<div id="blocklyDiv"></div>
+
+
+<section id="scene">
+    <mat-card style="min-height: 100%;">
+        <mat-card-header>
+            <p class="smallTitle">{{scenes_name[patternIdx]}}</p>
+        </mat-card-header>
+        <mat-card-content>
+            <span  [innerHTML]="scenes_desc[patternIdx][sceneIdx]+style|html"></span>
+        </mat-card-content>
+        <mat-card-footer>
+            <div class="footer">
+                <button mat-raised-button color="primary" (click)="showCode()">运行</button>
+                <button mat-raised-button [disabled]="disablePre" (click)="changeScene(-1)">上一场景</button>
+                <button mat-raised-button [disabled]="disableNext" (click)="changeScene(1)">下一场景
+                </button>
+            </div>
+        </mat-card-footer>
+    </mat-card>
+</section>
+<section id="code">
+    <mat-card style="min-height: 100%;">
+        <mat-card-header>
+            <p class="smallTitle">代码展示</p>
+        </mat-card-header>
+        <mat-card-content>
+            <pre style="overflow: scroll;">{{code}}</pre>
+        </mat-card-content>
+    </mat-card>
+</section>
